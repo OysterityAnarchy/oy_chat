@@ -47,7 +47,7 @@ minetest.register_chatcommand("me", {
 		if param:find("<") or param:find(">") then
 			param = minetest.strip_colors(param)
 		end
-		minetest.chat_send_all(minetest.colorize("#B0B0B0", " " .. name .. " " .. param))
+		minetest.chat_send_all(" " .. minetest.colorize("#B0B0B0", name .. " " .. param))
 		return true
 	end,
 })
