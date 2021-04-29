@@ -6,8 +6,7 @@ minetest.register_chatcommand("kill", {
 		local player = minetest.get_player_by_name(name)
 		if player then
 			if minetest.settings:get_bool("enable_damage") then
-				mcl_death_messages.player_damage(player, S("@1 committed suicide.", name))
-				player:set_hp(0)
+				player:set_hp(0, {_mcl_type = "out_of_world"})
 				return true
 			else
 				for _, callback in pairs(minetest.registered_on_respawnplayers) do
