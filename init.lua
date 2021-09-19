@@ -38,15 +38,12 @@ function minetest.send_leave_message(player_name, timed_out)
 	end
 end
 
-if not clam_antispam then
-
-	minetest.register_chatcommand("greentext", {
-		params = "<action>",
-		description = "Sends a message in greentext",
-		privs = {shout = true},
-		func = function(name, param)
-			minetest.chat_send_all(minetest.colorize("#789922", " <" .. name .. ">: >" .. param))
-			return true
-		end,
-	})
-end
+minetest.register_chatcommand("greentext", {
+	params = "<action>",
+	description = "Sends a message in greentext",
+	privs = {shout = true},
+	func = function(name, param)
+		minetest.chat_send_all(minetest.colorize("#789922", " <" .. name .. ">: >" .. param))
+		return true
+	end,
+})
